@@ -9,6 +9,7 @@ const Info = () => {
     sublimetext:
       "https://docs.sublimetext.io/guide/extensibility/snippets.html",
     atom: "http://flight-manual.atom.io/using-atom/sections/snippets/",
+    zed: "https://zed.dev/docs/snippets",
   };
 
   const platformKey = navigator.platform === "MacIntel" ? "⌘" : "ctrl";

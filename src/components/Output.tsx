@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import parseVSCode from "../parseVSCode";
 import parseSublimeText from "../parseSublimeText";
 import parseAtom from "../parseAtom";
+import parseZed from "../parseZed";
 
 const parseSnippet = (
   mode: Mode,
@@ -20,6 +21,10 @@ const parseSnippet = (
 
   if (mode === "atom") {
     return parseAtom(snippet, tabTrigger, description);
+  }
+
+  if (mode === "zed") {
+    return parseZed(snippet, tabTrigger, description);
   }
 
   return "";
@@ -60,6 +65,16 @@ const Output = () => {
           onClick={() => context.setMode("vscode")}
         >
           VSCode
+        </button>
+        <button
+          className={
+            context.mode === "zed"
+              ? "app__button app__button--zed app__button--active"
+              : "app__button app__button--zed"
+          }
+          onClick={() => context.setMode("zed")}
+        >
+          Zed
         </button>
         <button
           className={
